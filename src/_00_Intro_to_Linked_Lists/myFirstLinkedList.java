@@ -22,7 +22,7 @@ public class myFirstLinkedList<T> {
 		list.add("Forky");
 		list.add("Bullseye");
 		list.remove(2);
-		//System.out.println(list.size());
+		System.out.println(list.size());
 		Node<String> node;
 		node = new Node<String>(null);
 		node = list.getHead();
@@ -30,6 +30,7 @@ public class myFirstLinkedList<T> {
 		while (current.getPrev()!=null) {
 		current.setValue(current.toString().toUpperCase());	
 			current = current.getPrev();
+			System.out.println(current.getValue());
 		}
 		
 
