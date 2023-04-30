@@ -23,7 +23,7 @@ public class myFirstLinkedList<T> {
 		list.add("Bullseye");
 		list.remove(2);
 		System.out.println(list.size());
-		Node<String> node;
+		Node<String> node = new Node <String>(null);
 		node = new Node<String>(null);
 		node = list.getHead();
 		Node <String> current = list.getTail();

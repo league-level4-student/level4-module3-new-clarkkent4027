@@ -23,35 +23,34 @@ public class SpiesOnATrain {
 	 * statements.
 	 */
 	String findIntel(LinkedList<TrainCar> train, String[] clues) {
-		HashMap<Integer, String> data = new HashMap<Integer, String>();
+		HashMap<String, Integer> data = new HashMap<String, Integer>();
 		Node<TrainCar> node = train.getTail();
-		String maxfreq = "";
-		while (node.getPrev() != node) {
+		String sus = "";
+		while (node.getPrev() != null) {
 			String words[] = node.getValue().questionPassenger().split(" ");
 			System.out.println(node.getValue().questionPassenger());
+			sus = words[13];
 			System.out.println(words[13]);
-			for (int i = 0; i < words.length; i++) {
-				data.put(i, words[13]);
+			if (data.get(sus) != null) {
+				data.replace(sus, data.get(sus), data.get(sus) + 1);
+			} else {
+				data.put(sus, 1);
 			}
+
 			node = node.getPrev();
-			int maxcount = 0;
-	
-			for (int i = 0; i < data.size(); i++) {
-				int count = 0;
-				for (int j = 0; j < data.size(); j++) {
-					if (data.get(i).equals(data.get(j))) {
-						count = count +1;
-					}
-				}
-				if (count > maxcount) {
-					maxcount = count;			
-					maxfreq = data.get(i);
-					System.out.println("The current most frequent suspect is " + maxfreq);
-				}
+			for (Integer i : data.values()) {
+				System.out.println(i);
 			}
 		}
-		return maxfreq;
+		for (String s : data.keySet()) {
+			System.out.println(s);
+			if (data.get(s).equals(3)) {
+				return s;
+			}
+
+		}
+
+		return "";
 
 	}
-
 }
