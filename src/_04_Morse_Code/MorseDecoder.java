@@ -56,7 +56,7 @@ public class MorseDecoder {
      * print it to the console:
      * 
      * -.-- --- ..- .- .-. . .- -- .- --.. .. -. --.
-     * 
+     * y o u    a r e    a m a z i n g !
      * 2.) Then use the binary tree and the scanner class to create a morse code
      * translator. The user should be able to type multiple letters in morse
      * code on a single line and have it repeated back to them, decoded into the
