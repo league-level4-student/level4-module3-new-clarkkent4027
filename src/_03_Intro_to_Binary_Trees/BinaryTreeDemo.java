@@ -1,11 +1,15 @@
 package _03_Intro_to_Binary_Trees;
 
+import _00_Intro_to_Linked_Lists.LinkedList;
+import _00_Intro_to_Linked_Lists.Node;
+import _02_Rainbow_Zombie_Conga_Line.Zombie;
+
 public class BinaryTreeDemo {
 
     /*
      * A Binary Tree is a data structure that makes use of nodes and references
      * like a LinkedList, but instead of the nodes pointing to a previous node
-     * or next node in an unorderd list they each points to two child nodes that
+     * or next node in an unordered list they each points to two child nodes that
      * are below them in the hierarchy.
      * 
      * Some important properties of BinaryTree are:
@@ -33,7 +37,12 @@ public class BinaryTreeDemo {
      */
 
     public static void main(String[] args) {
-
+    	BinaryTree <String> iLikeTrees;
+    	iLikeTrees = new BinaryTree<String>();
+    	iLikeTrees.insert("Mom");
+    	Node<String> Mom = new Node<String>("Mom");
+    	iLikeTrees.getRoot();
+    	
     }
 
 }

@@ -37,7 +37,9 @@ public class RainbowZombieCongaLine {
 	public void engine(Zombie dancer) {
 		congaLine.add(dancer);
 		Node<Zombie> hed = new Node<Zombie>(dancer);
-		hed = congaLine.getHead();
+		congaLine.getHead().setPrev(hed);
+	hed.setNext(congaLine.getHead());
+	congaLine.setHead(hed);
 	}
 
 	// Make the passed in zombie the last Zombie in the conga line!
@@ -50,13 +52,30 @@ public class RainbowZombieCongaLine {
 	// Place the zombie at the designated position in the conga line!
 	public void jumpInTheLine(Zombie dancer, int position) {
 		congaLine.add(dancer);
+		Node<Zombie> current = congaLine.getHead();
 		Node<Zombie> pos = new Node<Zombie>(dancer);
 		int spot = 0;
-		Node<Zombie> current = congaLine.getHead();
 		while (current != null) {
-		
+			if (position ==spot) {
+			Node <Zombie> previous = current.getPrev();
+	previous.setNext(pos);
+	pos.setNext(current);
+	current.setPrev(pos);
+	pos.setPrev(previous);
+			}
+			spot = spot + 1;
+			current = current.getNext();
 		}
 	}
+
+		
+
+			
+		
+
+
+		
+	
 
 	/*
 	 * Remove all zombies with the same hat color as the passed in zombie from the
@@ -112,6 +131,7 @@ public class RainbowZombieCongaLine {
 
 		congaLine.add(dancer);
 		hatCuller = dancer.getZombieHatColor();
+		
 
 	}
 
@@ -122,13 +142,22 @@ public class RainbowZombieCongaLine {
 	public void rainbowBrains(Zombie dancer) {
 		Node<Zombie> head = new Node<Zombie>(dancer);
 		head = congaLine.getHead();
-		for (int i = 0; i < zombieHats.length; i++) {
-			congaLine.add(dancer);
 
-		}
-
+Zombie zombieR = new Zombie(ZombieHatColor.R);
+congaLine.add(zombieR);
+Zombie zombieO = new Zombie(ZombieHatColor.O);
+congaLine.add(zombieO);
+Zombie zombieY = new Zombie(ZombieHatColor.Y);
+congaLine.add(zombieY);
+Zombie zombieG = new Zombie(ZombieHatColor.G);
+congaLine.add(zombieG);
+Zombie zombieB = new Zombie(ZombieHatColor.B);
+congaLine.add(zombieB);
+Zombie zombieI = new Zombie(ZombieHatColor.I);
+congaLine.add(zombieI);
+Zombie zombieV = new Zombie(ZombieHatColor.V);
+congaLine.add(zombieV);
 	}
-
 	public LinkedList<Zombie> getCongaLine() {
 		return congaLine;
 	}
