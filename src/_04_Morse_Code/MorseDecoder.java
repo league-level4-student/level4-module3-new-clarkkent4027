@@ -7,7 +7,7 @@ import _03_Intro_to_Binary_Trees.Node;
 
 public class MorseDecoder {
 
-	static BinaryTree<MorseCode> mcTree = new BinaryTree<MorseCode>();
+	static BinaryTree<MorseCode> mcTree = new BinaryTree<MorseCode>();	
 	static Node<MorseCode> current = mcTree.getRoot();
 
 	public static void main(String[] args) {
@@ -19,9 +19,16 @@ public class MorseDecoder {
 		Scanner scammer = new Scanner(System.in);
 		System.out.println("Hello friend, please type your message in morse code and I will decode it for you.");
 		String code = scammer.nextLine();
-		String[] split = code.split(" ");
-		String splits = split[0];
-		System.out.print(findLetter(splits, mcTree.getRoot()));
+		String[] letter = code.split(" ");
+		for (int i = 0; i < letter.length; i++) {
+			if (letter[i].equals("1")) {
+				System.out.print(" ");
+				i = i + 1;
+			}
+			String splits = letter[i];
+			System.out.print(findLetter(splits, mcTree.getRoot()));
+		}
+
 	}
 
 	public void initialize() {
